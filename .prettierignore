@@ -1,0 +1,19 @@
+# misc
+pnpm-lock.yaml
+pnpm-workspace.yaml
+package-lock.json
+
+# dependencies
+node_modules
+
+# build
+/build
+.output
+/.svelte-kit
+/build
+/package
+
+# tests
+*.spec.ts
+*.e2e-spec.ts
+coverage
