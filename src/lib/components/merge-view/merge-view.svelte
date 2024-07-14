@@ -2,6 +2,7 @@
 	import { onMount, onDestroy } from "svelte";
 	import type { Extension } from "@codemirror/state";
 	import {
+		EditorView,
 		highlightActiveLine,
 		highlightActiveLineGutter,
 		highlightSpecialChars,
@@ -22,7 +23,7 @@
 	let mergeView: MergeView;
 	let parentElement: HTMLDivElement;
 
-	const extensions: Extension[] = [
+	const baseExtensions: Extension[] = [
 		highlightActiveLine(),
 		search({ top: true }),
 		lineNumbers(),
@@ -37,11 +38,17 @@
 		mergeView = new MergeView({
 			a: {
 				doc: docA,
-				extensions,
+				extensions: [
+					...baseExtensions,
+					EditorView.contentAttributes.of({ "aria-label": "Content Before" }),
+				],
 			},
 			b: {
 				doc: docB,
-				extensions,
+				extensions: [
+					...baseExtensions,
+					EditorView.contentAttributes.of({ "aria-label": "Content After" }),
+				],
 			},
 			parent: parentElement,
 		});
@@ -60,8 +67,8 @@
 
 <div
 	bind:this={parentElement}
-	class={cn("relative size-full h-full max-h-full overflow-scroll", $$props["class"])}
+	class={cn("relative size-full h-full max-h-full cursor-text overflow-scroll", $$props["class"])}
 >
-	<div class="absolute left-0 top-0 h-full w-[32.83px] bg-[rgb(30,30,30)]" />
-	<div class="absolute left-1/2 top-0 h-full w-[32.83px] bg-[rgb(30,30,30)]" />
+	<div class="absolute left-0 top-0 h-full w-[32.83px] cursor-default bg-[rgb(30,30,30)]" />
+	<div class="absolute left-1/2 top-0 h-full w-[32.83px] cursor-default bg-[rgb(30,30,30)]" />
 </div>

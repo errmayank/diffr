@@ -32,6 +32,7 @@ export const dark = EditorView.theme(
 			backgroundColor: "rgb(30, 30, 30)",
 			color: "rgb(130, 130, 130)",
 			border: "none",
+			cursor: "default",
 		},
 		".cm-activeLineGutter": {
 			color: "rgb(255, 255, 255)",
