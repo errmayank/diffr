@@ -1,28 +1,22 @@
 <script>
 	import { version } from "$app/environment";
+
+	import { DiffrVector, GitHubVector } from "$lib/components/vectors";
 </script>
 
-<nav class="flex h-8 w-full items-center border-b-2 border-border px-2">
-	<a href="/" class="flex items-center justify-center gap-1.5">
-		<svg width="48px" height="16px" viewBox="0 0 69.264 19.68" xmlns="http://www.w3.org/2000/svg">
-			<g fill="#fff">
-				<path
-					d="M 8.688 7.224 L 8.688 1.248 L 11.592 1.248 L 11.592 19.68 L 8.688 19.68 L 8.688 18.888 L 7.392 19.68 L 2.208 19.68 L 0 16.44 L 0 8.76 L 2.208 6.432 L 7.392 6.432 L 8.688 7.224 Z M 2.904 9.648 L 2.904 15.936 L 3.6 16.968 L 8.256 16.968 L 8.688 16.536 L 8.688 10.2 L 7.992 9.144 L 3.384 9.144 L 2.904 9.648 Z"
-				/>
-				<path
-					d="M 19.32 6 L 21.456 9.168 L 21.456 17.064 L 25.848 17.064 L 25.848 19.68 L 14.28 19.68 L 14.28 17.064 L 18.672 17.064 L 18.672 9.672 L 17.952 8.616 L 15.288 8.616 L 15.288 6 L 19.32 6 Z M 21.744 3.36 L 18.384 3.36 L 18.384 0 L 21.744 0 L 21.744 3.36 Z"
-				/>
-				<path
-					d="M 38.76 2.88 L 40.272 5.064 L 38.352 7.032 L 37.368 5.592 L 34.272 5.592 L 33.504 6.36 L 33.504 9.36 L 37.368 9.36 L 37.368 12.048 L 33.504 12.048 L 33.504 19.68 L 30.6 19.68 L 30.6 12.048 L 28.68 12.048 L 28.68 9.36 L 30.6 9.36 L 30.6 5.424 L 33.096 2.88 L 38.76 2.88 Z"
-				/>
-				<path
-					d="M 53.16 2.88 L 54.672 5.064 L 52.752 7.032 L 51.768 5.592 L 48.672 5.592 L 47.904 6.36 L 47.904 9.36 L 51.768 9.36 L 51.768 12.048 L 47.904 12.048 L 47.904 19.68 L 45 19.68 L 45 12.048 L 43.08 12.048 L 43.08 9.36 L 45 9.36 L 45 5.424 L 47.496 2.88 L 53.16 2.88 Z"
-				/>
-				<path
-					d="M 58.92 6.456 L 61.008 7.68 L 62.184 6.456 L 67.632 6.456 L 69.264 8.904 L 67.032 10.416 L 66.216 9.144 L 63.336 9.144 L 62.568 9.96 L 62.568 16.992 L 65.976 16.992 L 65.976 19.68 L 57.264 19.68 L 57.264 16.992 L 59.688 16.992 L 59.688 10.176 L 58.992 9.144 L 57.264 9.144 L 57.264 6.456 L 58.92 6.456 Z"
-				/>
-			</g>
-		</svg>
+<nav class="flex h-8 w-full items-center justify-between border-b-[1px] border-foreground/20">
+	<a
+		href="/"
+		class="flex h-full items-center justify-center gap-1.5 border-x-[1px] border-foreground/20 px-3"
+	>
+		<DiffrVector size={16} />
 		<span class="mt-1.5 font-mono text-[10px]">v{version}</span>
+	</a>
+	<a
+		href="https://github.com/errmayank/diffr"
+		target="_blank"
+		class="group flex h-full items-center justify-center border-x-[1px] border-foreground/20 px-3"
+	>
+		<GitHubVector size={16} class="group-hover:fill-white" />
 	</a>
 </nav>

@@ -14,6 +14,7 @@
 	import { MergeView } from "@codemirror/merge";
 
 	import { darkTheme } from "./themes/dark";
+	import { cn } from "$lib/utils";
 
 	export let docA: string = "";
 	export let docB: string = "";
@@ -59,7 +60,7 @@
 
 <div
 	bind:this={parentElement}
-	class={`relative size-full h-full max-h-full overflow-scroll border ${$$props["class"]}`}
+	class={cn("relative size-full h-full max-h-full overflow-scroll", $$props["class"])}
 >
 	<div class="absolute left-0 top-0 h-full w-[32.83px] bg-[rgb(30,30,30)]" />
 	<div class="absolute left-1/2 top-0 h-full w-[32.83px] bg-[rgb(30,30,30)]" />

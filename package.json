@@ -1,6 +1,10 @@
 {
 	"name": "diffr",
 	"version": "0.1.0",
+	"license": "MIT",
+	"author": "Mayank Verma <errmayank@gmail.com>",
+	"repository": "https://github.com/errmayank/diffr",
+	"homepage": "https://diffr.vercel.app",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -37,8 +41,6 @@
 	},
 	"dependencies": {
 		"@codemirror/commands": "6.6.0",
-		"@codemirror/lang-html": "6.4.9",
-		"@codemirror/lang-json": "6.0.1",
 		"@codemirror/language": "6.10.2",
 		"@codemirror/merge": "6.6.3",
 		"@codemirror/search": "6.5.6",
