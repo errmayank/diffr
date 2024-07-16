@@ -4,7 +4,7 @@
 </script>
 
 <svg
-	width={`${size * 3}px`}
+	width={`${size}px`}
 	height={`${size}px`}
 	{fill}
 	class={$$props["class"]}

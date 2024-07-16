@@ -4,7 +4,6 @@
 </script>
 
 <svg
-	role="img"
 	width={`${size}px`}
 	height={`${size}px`}
 	{fill}
