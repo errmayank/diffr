@@ -12,6 +12,8 @@ export const dark = EditorView.theme(
 			caretColor: "hsl(var(--foreground))",
 			fontFamily: "monospace",
 			padding: "0px",
+			paddingTop: "0.5rem",
+			paddingBottom: "0.5rem",
 		},
 		"&.cm-focused .cm-cursor": {
 			borderLeftColor: "#c6c6c6",
@@ -50,6 +52,10 @@ export const dark = EditorView.theme(
 			backgroundColor: "rgb(1 129 102 / 35%)",
 			borderRadius: "2px",
 		},
+		".cm-content, .cm-gutter": {
+			minHeight: "calc(100dvh - 2.25rem - 1.75rem)",
+		},
+		".cm-scroller": { overflow: "auto" },
 	},
 	{ dark: true },
 );

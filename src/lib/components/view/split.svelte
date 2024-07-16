@@ -20,7 +20,7 @@
 	export let docA: string = "";
 	export let docB: string = "";
 
-	let mergeView: MergeView;
+	let splitView: MergeView;
 	let parentElement: HTMLDivElement;
 
 	const baseExtensions: Extension[] = [
@@ -35,7 +35,7 @@
 	];
 
 	const createEditor = () => {
-		mergeView = new MergeView({
+		splitView = new MergeView({
 			a: {
 				doc: docA,
 				extensions: [
@@ -59,8 +59,8 @@
 	});
 
 	onDestroy(() => {
-		if (mergeView) {
-			mergeView.destroy();
+		if (splitView) {
+			splitView.destroy();
 		}
 	});
 </script>
@@ -68,10 +68,7 @@
 <div
 	bind:this={parentElement}
 	class={cn(
-		"relative size-full h-full max-h-full cursor-text overflow-scroll bg-card py-2",
+		"size-full h-[calc(100dvh-2.25rem-1.75rem)] max-h-full cursor-text overflow-scroll bg-card",
 		$$props["class"],
 	)}
->
-	<div class="absolute left-0 top-0 h-full w-[32.83px] cursor-default bg-accent" />
-	<div class="absolute left-1/2 top-0 h-full w-[32.83px] cursor-default bg-accent" />
-</div>
+/>
