@@ -6,7 +6,7 @@ export const dark = EditorView.theme(
 	{
 		"&": {
 			color: "hsl(var(--foreground))",
-			backgroundColor: "hsl(var(--background))",
+			backgroundColor: "hsl(var(--card))",
 		},
 		".cm-content": {
 			caretColor: "hsl(var(--foreground))",
@@ -23,19 +23,20 @@ export const dark = EditorView.theme(
 			backgroundColor: "rgba(114, 161, 255, 0.35)",
 		},
 		".cm-line": {
-			backgroundColor: "rgba(255, 255, 255, 0.025)",
+			backgroundColor: "hsl(var(--card))",
 		},
 		".cm-activeLine": {
-			boxShadow: "inset 0px 0px 400px 110px rgba(0, 0, 0, 0.25)",
+			boxShadow: "inset 0px 0px 400px 110px rgba(0, 0, 0, 0.12)",
 		},
 		".cm-gutters": {
-			backgroundColor: "rgb(30, 30, 30)",
-			color: "rgb(130, 130, 130)",
+			backgroundColor: "hsl(var(--accent))",
+			color: "hsl(var(--muted-foreground))",
 			border: "none",
 			cursor: "default",
 		},
 		".cm-activeLineGutter": {
-			color: "rgb(255, 255, 255)",
+			color: "hsl(var(--foreground))",
+			backgroundColor: "transparent",
 		},
 		".cm-changedLine:has(.cm-deletedLine)": { backgroundColor: "rgb(236 79 32 / 15%)" },
 		".cm-changedLine:has(.cm-insertedLine)": { backgroundColor: "rgb(1 129 102 / 15%)" },

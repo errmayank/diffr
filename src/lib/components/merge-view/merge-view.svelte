@@ -67,8 +67,11 @@
 
 <div
 	bind:this={parentElement}
-	class={cn("relative size-full h-full max-h-full cursor-text overflow-scroll", $$props["class"])}
+	class={cn(
+		"relative size-full h-full max-h-full cursor-text overflow-scroll bg-card py-2",
+		$$props["class"],
+	)}
 >
-	<div class="absolute left-0 top-0 h-full w-[32.83px] cursor-default bg-[rgb(30,30,30)]" />
-	<div class="absolute left-1/2 top-0 h-full w-[32.83px] cursor-default bg-[rgb(30,30,30)]" />
+	<div class="absolute left-0 top-0 h-full w-[32.83px] cursor-default bg-accent" />
+	<div class="absolute left-1/2 top-0 h-full w-[32.83px] cursor-default bg-accent" />
 </div>
