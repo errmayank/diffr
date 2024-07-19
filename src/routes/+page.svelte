@@ -1,7 +1,7 @@
 <script>
 	import { Nav } from "$lib/components/nav";
 	import { SplitView } from "$lib/components/view";
-	import { Footer } from "$lib/components/footer";
+	import { Toolbar } from "$lib/components/toolbar";
 
 	let docA = "";
 	let docB = "";
@@ -10,5 +10,5 @@
 </script>
 
 <Nav />
-<SplitView {docA} {docB} bind:deletions bind:additions />
-<Footer bind:deletions bind:additions />
+<SplitView bind:docA bind:docB bind:deletions bind:additions />
+<Toolbar bind:docA bind:docB bind:deletions bind:additions />

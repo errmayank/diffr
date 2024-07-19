@@ -1,3 +1,4 @@
+export { default as ColumnsVector } from "./columns.svelte";
 export { default as CopyVector } from "./copy.svelte";
 export { default as DiffrVector } from "./diffr.svelte";
 export { default as GitHubVector } from "./github.svelte";

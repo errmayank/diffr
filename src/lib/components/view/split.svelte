@@ -66,6 +66,11 @@
 				extensions: [
 					...baseExtensions,
 					EditorView.contentAttributes.of({ "aria-label": "Content Before" }),
+					EditorView.updateListener.of(viewUpdate => {
+						if (viewUpdate.docChanged) {
+							docA = viewUpdate.state.doc.toString();
+						}
+					}),
 				],
 			},
 			b: {
@@ -73,6 +78,11 @@
 				extensions: [
 					...baseExtensions,
 					EditorView.contentAttributes.of({ "aria-label": "Content After" }),
+					EditorView.updateListener.of(viewUpdate => {
+						if (viewUpdate.docChanged) {
+							docB = viewUpdate.state.doc.toString();
+						}
+					}),
 				],
 			},
 			parent: parentElement,
