@@ -17,8 +17,10 @@
 	import { darkTheme } from "./themes/dark";
 	import { cn } from "$lib/utils";
 
-	export let docA: string = "";
-	export let docB: string = "";
+	export let docA: string;
+	export let docB: string;
+	export let deletions: number;
+	export let additions: number;
 
 	let splitView: MergeView;
 	let parentElement: HTMLDivElement;
@@ -32,6 +34,29 @@
 		foldGutter(),
 		keymap.of([...defaultKeymap, ...searchKeymap, ...historyKeymap, ...foldKeymap]),
 		darkTheme,
+		EditorView.updateListener.of(viewUpdate => {
+			if (viewUpdate.docChanged) {
+				const { deltaA, deltaB } = splitView.chunks
+					.flatMap(chunk => {
+						return chunk.changes.map(change => ({
+							deltaA: change.toA - change.fromA,
+							deltaB: change.toB - change.fromB,
+						}));
+					})
+					.reduce(
+						(acc, cur) => {
+							acc.deltaA += cur.deltaA;
+							acc.deltaB += cur.deltaB;
+
+							return acc;
+						},
+						{ deltaA: 0, deltaB: 0 },
+					);
+
+				deletions = deltaA;
+				additions = deltaB;
+			}
+		}),
 	];
 
 	const createEditor = () => {
