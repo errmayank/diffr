@@ -56,6 +56,14 @@ export const dark = EditorView.theme(
 			minHeight: "calc(100dvh - 2.25rem - 1.75rem)",
 		},
 		".cm-scroller": { overflow: "auto" },
+		".cm-mergeSpacer": {
+			backgroundSize: "8px 8px",
+			backgroundImage: `repeating-linear-gradient(
+					45deg,
+					hsl(var(--border) / 0.45) 0, hsl(var(--border) / 0.45) 1px,
+					transparent 0, transparent 50%
+				)`,
+		},
 	},
 	{ dark: true },
 );
