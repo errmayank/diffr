@@ -11,7 +11,7 @@
 	} from "@codemirror/view";
 	import { search, searchKeymap } from "@codemirror/search";
 	import { foldGutter, foldKeymap } from "@codemirror/language";
-	import { defaultKeymap, historyKeymap } from "@codemirror/commands";
+	import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
 	import { MergeView } from "@codemirror/merge";
 
 	import { darkTheme } from "./themes/dark";
@@ -32,6 +32,7 @@
 		highlightActiveLineGutter(),
 		highlightSpecialChars(),
 		foldGutter(),
+		history(),
 		keymap.of([...defaultKeymap, ...searchKeymap, ...historyKeymap, ...foldKeymap]),
 		darkTheme,
 		EditorView.updateListener.of(viewUpdate => {
