@@ -21,8 +21,8 @@
 	export let docB: string;
 	export let deletions: number;
 	export let additions: number;
+	export let view: MergeView | null;
 
-	let splitView: MergeView;
 	let parentElement: HTMLDivElement;
 
 	const baseExtensions: Extension[] = [
@@ -36,8 +36,8 @@
 		keymap.of([...defaultKeymap, ...searchKeymap, ...historyKeymap, ...foldKeymap]),
 		darkTheme,
 		EditorView.updateListener.of(viewUpdate => {
-			if (viewUpdate.docChanged) {
-				const { deltaA, deltaB } = splitView.chunks
+			if (view && viewUpdate.docChanged) {
+				const { deltaA, deltaB } = view.chunks
 					.flatMap(chunk => {
 						return chunk.changes.map(change => ({
 							deltaA: change.toA - change.fromA,
@@ -60,8 +60,8 @@
 		}),
 	];
 
-	const createEditor = () => {
-		splitView = new MergeView({
+	function initializeView() {
+		view = new MergeView({
 			a: {
 				doc: docA,
 				extensions: [
@@ -88,15 +88,15 @@
 			},
 			parent: parentElement,
 		});
-	};
+	}
 
 	onMount(() => {
-		createEditor();
+		initializeView();
 	});
 
 	onDestroy(() => {
-		if (splitView) {
-			splitView.destroy();
+		if (view) {
+			view.destroy();
 		}
 	});
 </script>
